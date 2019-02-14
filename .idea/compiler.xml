@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="my-v2ex-commons" />
+        <module name="my-v2ex-domain" />
+        <module name="my-v2ex-web-admin" />
+        <module name="my-v2ex-web-api" />
+        <module name="my-v2ex-web-img" />
+        <module name="my-v2ex-web-ui" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my-v2ex" target="1.5" />
+      <module name="my-v2ex-commons" target="1.8" />
+      <module name="my-v2ex-dependencies" target="1.8" />
+      <module name="my-v2ex-domain" target="1.8" />
+      <module name="my-v2ex-web-admin" target="1.8" />
+      <module name="my-v2ex-web-api" target="1.8" />
+      <module name="my-v2ex-web-api (1)" target="1.5" />
+      <module name="my-v2ex-web-img" target="1.8" />
+      <module name="my-v2ex-web-ui" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

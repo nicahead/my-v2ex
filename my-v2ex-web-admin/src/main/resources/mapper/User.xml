@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用动态代理开发DAO，namespace必须和Mapper接口类路径一致 -->
+<mapper namespace="com.nic.admin.dao.UserDao">
+
+    <!--条件查询代码块-->
+    <sql id="conditions">
+        <where>
+            <if test="user != null">
+                <if test="user.id != null">
+                    and id = #{user.id}
+                </if>
+                <if test="user.username != null and user.username != ''">
+                    and username like concat('%',#{user.username},'%')
+                </if>
+                <if test="user.email != null and user.email != ''">
+                    and email = #{user.email}
+                </if>
+                <if test="user.role != null">
+                    and role = #{user.role}
+                </if>
+            </if>
+        </where>
+    </sql>
+    <!--根据用户名精确查询用户-->
+    <select id="getUserByname" parameterType="String" resultType="com.nic.domain.User">
+        select * from tb_user
+        where username = #{username}
+    </select>
+    <!--条件查询用户(id,用户名模糊查询，邮箱，角色)-->
+    <select id="getUserList" parameterType="com.nic.domain.UserQueryVO" resultType="com.nic.domain.User">
+        select * from tb_user
+        <include refid="conditions"></include>
+        <if test="start != null and length != null">
+          limit #{start},#{length}
+        </if>
+    </select>
+    <!--查询总用户条数-->
+    <select id="getCount" parameterType="com.nic.domain.UserQueryVO" resultType="int">
+        select count(*) from tb_user
+        <include refid="conditions"></include>
+    </select>
+    <!--查询今日新增用户条数-->
+    <select id="getNewCount" resultType="int">
+        select count(*) from tb_user where date_format(created,'%Y-%m-%d')= date_format(now(),'%Y-%m-%d')
+    </select>
+    <!--添加用户-->
+    <insert id="addUser" parameterType="com.nic.domain.User">
+      insert into tb_user(username,password,email,avatar,role) value
+        (#{username},#{password},#{email},#{avatar},#{role})
+    </insert>
+    <!--修改用户-->
+    <insert id="updateUser" parameterType="com.nic.domain.User">
+      update tb_user
+        set
+        <set>
+            <if test="username!=null">
+                username = #{username},
+            </if>
+            <if test="password!=null">
+                password = #{password},
+            </if>
+            <if test="email!=null">
+                email = #{email},
+            </if>
+            <if test="avatar!=null">
+                avatar = #{avatar},
+            </if>
+            <if test="role!=null">
+                role = #{role},
+            </if>
+            <if test="logined!=null">
+                logined = #{logined}
+            </if>
+        </set>
+        where
+        id = #{id}
+    </insert>
+    <!-- 根据ids删除用户 -->
+    <delete id="delUsers">
+        delete FROM tb_user
+        where id in
+        <!-- foreach标签，进行遍历 -->
+        <!-- collection：要遍历的集合(List<?>对象默认用list代替作为键，数组对象有array代替作为键，Map对象没有默认的键) -->
+        <!-- item：遍历的项目，可以随便写，，但是和后面的#{}里面要一致 -->
+        <!-- open：在前面添加的sql片段 -->
+        <!-- close：在结尾处添加的sql片段 -->
+        <!-- separator：指定遍历的元素之间使用的分隔符 -->
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
+

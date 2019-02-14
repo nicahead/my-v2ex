@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用动态代理开发DAO，namespace必须和Mapper接口类路径一致 -->
+<mapper namespace="com.nic.api.dao.CommentDao">
+
+    <select id="getComments" parameterType="com.nic.domain.CommentQueryVO" resultType="com.nic.commons.dto.CommentListDTO">
+         select
+         c.id as id,
+         p.id as post_id,
+         p.title as post_title,
+         c.replyed_id as replyed_id,
+         u.id as author_id,
+         u.username as author_name,
+         u.avatar as author_avatar,
+         c.content as content,
+         c.created as created
+        from tb_post p left join tb_comment c on  p.id = c.post_id
+        left join tb_user u on c.author_id=u.id
+        <include refid="conditions"></include>
+        order by created
+        <if test="start != null and length != null">
+            limit #{start},#{length}
+        </if>
+    </select>
+
+    <select id="getCount" parameterType="com.nic.domain.CommentQueryVO" resultType="int">
+        select count(*) from tb_comment
+        <include refid="conditions"></include>
+    </select>
+
+    <!--条件查询代码块-->
+    <sql id="conditions">
+        <where>
+            <if test="comment != null">
+                <if test="comment.id != null and comment.id != ''">
+                    and id = #{comment.id}
+                </if>
+                <if test="comment.post_id != null and comment.post_id != ''">
+                    and post_id = #{comment.post_id}
+                </if>
+                <if test="comment.replyed_id != null and comment.replyed_id != ''">
+                    and replyed_id = #{comment.replyed_id}
+                </if>
+                <if test="comment.author_id != null and comment.author_id != ''">
+                    and author_id = #{comment.author_id}
+                </if>
+            </if>
+        </where>
+    </sql>
+
+    <insert id="insertComment" parameterType="com.nic.domain.Comment">
+        insert into tb_comment(post_id,replyed_id,author_id,author_name,content)
+        value (#{post_id},#{replyed_id},#{author_id},#{author_name},#{content})
+    </insert>
+
+
+</mapper>
+

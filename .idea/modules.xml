@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/my-v2ex.iml" filepath="$PROJECT_DIR$/.idea/my-v2ex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-commons/my-v2ex-commons.iml" filepath="$PROJECT_DIR$/my-v2ex-commons/my-v2ex-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-dependencies/my-v2ex-dependencies.iml" filepath="$PROJECT_DIR$/my-v2ex-dependencies/my-v2ex-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-domain/my-v2ex-domain.iml" filepath="$PROJECT_DIR$/my-v2ex-domain/my-v2ex-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-web-admin/my-v2ex-web-admin.iml" filepath="$PROJECT_DIR$/my-v2ex-web-admin/my-v2ex-web-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-web-api/my-v2ex-web-api.iml" filepath="$PROJECT_DIR$/my-v2ex-web-api/my-v2ex-web-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-web-img/my-v2ex-web-img.iml" filepath="$PROJECT_DIR$/my-v2ex-web-img/my-v2ex-web-img.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-v2ex-web-ui/my-v2ex-web-ui.iml" filepath="$PROJECT_DIR$/my-v2ex-web-ui/my-v2ex-web-ui.iml" />
+    </modules>
+  </component>
+</project>

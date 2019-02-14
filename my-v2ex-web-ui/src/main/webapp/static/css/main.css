@@ -1,0 +1,281 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #E2E2E2 !important;
+}
+
+body a:link {
+    color: #000000;
+    text-decoration: none;
+}
+
+body a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+body a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+/*body a:active {*/
+    /*color: #FFFFFF;*/
+    /*text-decoration: none;*/
+/*}*/
+
+ul {
+    list-style: none;
+}
+
+.blank {
+    height: 25px;
+    background-color: #E2E2E2 !important;
+}
+.bc{
+    background-color: #fff !important;
+}
+
+.gray{
+    color: #778087;
+}
+#dataTable_paginate{
+    margin-right: 10px;
+}
+
+.post_title{
+    margin: 10px 0;
+    font-size: 30px;
+}
+
+.post_node {
+    background-color: #f5f5f5;
+    font-size: 12px;
+    line-height: 12px;
+    display: inline-block;
+    padding: 4px 4px 4px 4px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #999;
+}
+
+.post_author {
+    color: #778087;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.post_date,.post_reply {
+    font-size: 12px;
+    color: #ccc;
+    line-height: 200%;
+}
+
+.content_head_wrap {
+    margin: 10px 0;
+}
+
+#header {
+    height: 50px;
+    background-color: #FFFFFF;
+}
+
+#header .hd_wrap {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header .hd_wrap .hd_left {
+    padding: 0 20px !important;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#header .hd_wrap .hd_left h1 {
+    margin: 0;
+}
+#header .hd_wrap .hd_left .hd_search {
+    margin-left: 20px;
+}
+
+#header .hd_wrap .hd_right {
+    height: 50px;
+    width: 200px;
+    padding: 0 10px 0 30px !important;
+}
+
+#header .hd_wrap .hd_right .r_nav {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#header .hd_wrap .hd_right .r_nav li {
+    /*float: right;*/
+    margin-left: 10px;
+    /*margin: 0 auto;*/
+    line-height: 50px;
+}
+
+#content .con_left {
+    /*background-color: #fff;*/
+    padding: 0 25px !important;
+    /*margin: 0 15px;*/
+}
+
+.con_left .node_wrap {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.con_left .ul {
+    /*margin: 10px 0;*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.con_left .ul a {
+    padding: 2px 8px;
+    margin-right: 4px;
+    color: #000;
+    border-radius: 5px;
+}
+
+.con_left .ul .tab_active {
+    background-color: #000;
+    color: #fff;
+}
+
+/*.con_left .ul .tab:hover {*/
+    /*background-color: #F9F9F9;*/
+/*}*/
+
+.con_left .post_wrap {
+    padding: 15px;
+    border-bottom: 1px solid #e2e2e2;
+    display: flex;
+}
+
+.post_head {
+
+}
+
+.post_head img {
+    height: 50px;
+    border-radius: 5px;
+}
+
+.post_body {
+    width: 90%;
+    padding: 0 15px;
+}
+
+.post_body ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.post_body ul li {
+    margin-right: 15px;
+}
+
+.post_body h5 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 130%;
+    text-shadow: 0 1px 0 #fff;
+    color: #778087;
+}
+
+.post_num {
+    display: flex;
+    align-items: center;
+}
+
+.post_num span {
+    line-height: 12px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #e5e5e5;
+    display: inline-block;
+    padding: 2px 10px 2px 10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+#content .con_right {
+    padding: 0 25px !important;
+}
+
+#content .con_right .item {
+    background-color: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px;
+}
+
+.item .sub_item {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#right_head_2 .item {
+    display: flex;
+}
+
+.item .userImg {
+    height: 50px;
+    border-radius: 5px;
+}
+
+.item .info_wrap {
+    margin-left: 10px;
+}
+
+.item h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0 0 0;
+}
+
+.item a {
+    font-size: 12px;
+}
+.item dl {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+.dl-horizontal dt {
+    width: 70px !important;
+}
+.dl-horizontal dd {
+    margin-left: 100px !important;
+}
+
+#content .con_right .list_wrap {
+    display: flex;
+}
+
+.list_wrap img {
+    width: 24px;
+    height: 24px;
+}
+
+.list_wrap span {
+    font-size: 13px;
+    line-height: 120%;
+    margin-left: 5px;
+}

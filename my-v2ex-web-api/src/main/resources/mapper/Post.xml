@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用动态代理开发DAO，namespace必须和Mapper接口类路径一致 -->
+<mapper namespace="com.nic.api.dao.PostDao">
+
+    <insert id="insertPost" parameterType="com.nic.domain.Post">
+        insert into tb_post (id,node_id,node_name,title,content,author_id,author_name)
+        values (#{id},#{node_id},#{node_name},#{title},#{content},#{author_id},#{author_name})
+    </insert>
+
+    <update id="updatePost" parameterType="com.nic.domain.Post">
+        update tb_post
+        <set>
+            <if test="node_id!=null">
+                node_id = #{node_id},
+            </if>
+            <if test="node_name!=null">
+                node_name = #{node_name},
+            </if>
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="content!=null">
+                content = #{content},
+            </if>
+            <if test="comments!=null">
+                comments = #{comments},
+            </if>
+            <if test="reply_id!=null">
+                reply_id = #{reply_id},
+            </if>
+            <if test="reply_username!=null">
+                reply_username = #{reply_username},
+            </if>
+            <if test="updated!=null">
+                updated = #{updated},
+            </if>
+            <if test="replyed!=null">
+                replyed = #{replyed},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="selectById" parameterType="java.lang.String" resultType="com.nic.domain.Post">
+        select * from tb_post where id = #{id}
+    </select>
+
+    <select id="selectAll" parameterType="com.nic.domain.PostQueryVO" resultType="com.nic.commons.dto.PostListDTO">
+        select
+        <include refid="items"></include>
+        from tb_post p left join tb_user u on p.author_id=u.id
+        <include refid="conditions"></include>
+        order by replyed desc
+        <if test="start != null and length != null">
+            limit #{start},#{length}
+        </if>
+    </select>
+
+    <select id="selectPop"  resultType="com.nic.commons.dto.PostListDTO">
+        select
+        <include refid="items"></include>
+        from tb_post p left join tb_user u on p.author_id=u.id
+        order by comments desc limit 0,10
+    </select>
+
+    <select id="getCount" parameterType="com.nic.domain.PostQueryVO" resultType="int">
+        select count(*) from tb_post
+        <include refid="conditions"></include>
+    </select>
+
+    <!--条件查询代码块-->
+    <sql id="conditions">
+        <where>
+            <if test="post != null">
+                <if test="post.id != null and post.id != ''">
+                    and id = #{post.id}
+                </if>
+                <if test="post.node_id != null and post.node_id != ''">
+                    and node_id = #{post.node_id}
+                </if>
+                <if test="post.author_id != null and post.author_id != ''">
+                    and author_id = #{post.author_id}
+                </if>
+            </if>
+        </where>
+    </sql>
+    <sql id="items">
+        p.id as id,
+        p.node_name as nodeName,
+        p.title as title,
+        p.comments as comments,
+        p.reply_username as replyUsername,
+        p.created as created,
+        p.replyed as replyed,
+        u.username as authorName,
+        u.avatar as authorAvatar
+    </sql>
+
+</mapper>
+

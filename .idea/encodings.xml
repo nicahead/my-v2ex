@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/my-v2ex-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-dependencies" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-domain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-web-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-web-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-web-img" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-web-img" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-v2ex-web-ui" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

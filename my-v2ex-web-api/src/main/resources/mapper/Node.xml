@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用动态代理开发DAO，namespace必须和Mapper接口类路径一致 -->
+<mapper namespace="com.nic.api.dao.NodeDao">
+
+
+    <select id="getNodeList" resultType="com.nic.domain.Node">
+        select * from tb_node where state = 1
+    </select>
+
+
+</mapper>
+
