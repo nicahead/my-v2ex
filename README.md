@@ -36,3 +36,9 @@ maven多模块构建的仿v2ex论坛
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190214180604316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0ODM4NjQz,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190214180711868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0ODM4NjQz,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190214180924388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0ODM4NjQz,size_16,color_FFFFFF,t_70)
+
+### 使用
+- 将项目down到本地，解压项目
+- 使用idea import project，一路next
+- 安装项目依赖
+- 分别运行img、admin、api、ui模块，注意每个模块是分开运行的，所以需要设置各自的端口号，比如我设置的是img(http port8080,jmx port 1099)，api-(http port8081,jmx port 1100)，ui-(http port8082,jmx port 1101)，admin-(http port8084,jmx port 1103)，jmx port 本菜鸡不知道有木有影响。
