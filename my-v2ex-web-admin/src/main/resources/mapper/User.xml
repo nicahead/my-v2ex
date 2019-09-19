@@ -53,7 +53,6 @@
     <!--修改用户-->
     <insert id="updateUser" parameterType="com.nic.domain.User">
       update tb_user
-        set
         <set>
             <if test="username!=null">
                 username = #{username},
